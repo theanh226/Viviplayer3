@@ -45,16 +45,12 @@ const App = () => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   buildMarkers(player, marker);
-  // }, [player, marker]);
-
   useEffect(() => {
     setManuellSegment(JSON.parse(getSegmentFromStogare));
     buildMarkers(player, manuellSegment);
     console.log(manuellSegment);
   }, [getSegmentFromStogare]);
-  // let buildMarkers;
+
   const jumpToChapter = (video, { text, time }) => {
     video.currentTime = time;
     return video;
@@ -89,7 +85,6 @@ const App = () => {
   // }
 
   const buildMarkers = (video, segmentObj) => {
-    // console.log("build markers", segmentObj, video);
     if (segmentObj === undefined || segmentObj === null) return;
     let markersBuiled = segmentObj.map((chapter, index) => {
       return (
@@ -115,11 +110,8 @@ const App = () => {
         width="640"
         height="264"
       >
-        {/* <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
-
-        <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm" /> */}
         <source
-          src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+          src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
           type="video/mp4"
         />
       </video>
@@ -128,9 +120,6 @@ const App = () => {
       </div>
       <ul id="marker-list"></ul>
       <h2>Chapter</h2>
-      {/* {marker === undefined || marker === null
-        ? "Undivided video"
-        : buildMarkers} */}
       {marker === null || marker === undefined
         ? "undivided video"
         : buildMarkers(

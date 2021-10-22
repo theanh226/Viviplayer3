@@ -1,20 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Form, Input, InputNumber, Button, Space } from "antd";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 
 const Segment = ({ updateSegment, setUpdateSegment }) => {
   console.log(updateSegment);
   const onFinish = (values) => {
-    console.log("Received values of form:", values);
-    console.log(values.users);
+    // console.log("Received values of form:", values);
+    // console.log(values.users);
     localStorage.setItem("segmentSetting", JSON.stringify(values.users));
     setUpdateSegment(!updateSegment);
   };
-  // useEffect(() => {
-  //   return () => {
-  //     setUpdateComponent(!updateSegment);
-  //   };
-  // }, [setUpdateComponent]);
+
   return (
     <div>
       <h2>Video Segmentieren</h2>
@@ -68,7 +64,7 @@ const Segment = ({ updateSegment, setUpdateSegment }) => {
         </Form.List>
         <Form.Item>
           <Button type="primary" htmlType="submit">
-            Sengment
+            Segment
           </Button>
         </Form.Item>
       </Form>
