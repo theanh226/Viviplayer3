@@ -53,7 +53,8 @@ const App = () => {
 
   const jumpToChapter = (video, { text, time }) => {
     video.currentTime = time;
-    return video;
+    video.pause();
+    // return video;
   };
 
   // const notiChapter = (text, time) => {
@@ -107,8 +108,8 @@ const App = () => {
         controls
         preload="none"
         className="video-js vjs-default-skin"
-        width="640"
-        height="264"
+        width="600"
+        height="400"
       >
         <source
           src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
